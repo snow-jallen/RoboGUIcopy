@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:RoboGuiCopy.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Source"/>
+        <TextBox/>
+        <TextBlock Text="Destination"/>
+        <TextBox/>
+        <CheckBox/>
+        <CheckBox/>
+        <Button/>
+    </StackPanel>
 </Window>
