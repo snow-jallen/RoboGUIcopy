@@ -6,21 +6,23 @@
         xmlns:local="clr-namespace:RoboGuiCopy.Wpf"
         xmlns:vm="clr-namespace:Shared;assembly=Shared"
         mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800"
         xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="MainWindow" Height="450" Width="800">
-    <!--DataContext="{StaticResource ViewModel}">
-    <Window.Resources>
-        <vm:RobocopyRunnerVM x:Key="ViewModel" />
-    </Window.Resources> -->
+        prism:ViewModelLocator.AutoWireViewModel="True">
+        <!--See https://prismlibrary.github.io/docs/viewmodel-locator.html for documentation on wiring up the ViewModel-->
     <StackPanel>
-        <TextBlock Text="Source"/>
-        <TextBox Text="{Binding Source, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Destination"/>
-        <TextBox Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Content="Recursive" IsChecked="{Binding Recursive}"/>
-        <CheckBox Content="Restartable" IsChecked="{Binding Restartable}"/>
-        <Button Content="Just Do It" Command="{Binding JustDoIt}"/>
+        <TextBlock Text="Source" />
+        <TextBox Text="{Binding Source, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Text="Destination" />
+        <TextBox Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox Content="Recursive"
+                  IsChecked="{Binding Recursive}" />
+        <CheckBox Content="Restartable"
+                  IsChecked="{Binding Restartable}" />
+        <Button Content="Just Do It"
+                Command="{Binding JustDoIt}" />
         <TextBlock Text="Output" />
         <TextBlock Text="{Binding Output}" />
         <TextBlock Text="Error" />
