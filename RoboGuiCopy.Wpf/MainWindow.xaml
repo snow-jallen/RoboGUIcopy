@@ -13,11 +13,15 @@
     </Window.Resources> -->
     <StackPanel>
         <TextBlock Text="Source"/>
-        <TextBox Text="{Binding Source}"/>
+        <TextBox Text="{Binding Source, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Destination"/>
-        <TextBox Text="{Binding Destination}"/>
+        <TextBox Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Content="Recursive" IsChecked="{Binding Recursive}"/>
         <CheckBox Content="Restartable" IsChecked="{Binding Restartable}"/>
         <Button Content="Just Do It" Command="{Binding JustDoIt}"/>
+        <TextBlock Text="Output" />
+        <TextBlock Text="{Binding Output}" />
+        <TextBlock Text="Error" />
+        <TextBlock Text="{Binding Error}" />
     </StackPanel>
 </Window>

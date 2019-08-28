@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -9,7 +10,7 @@ namespace Shared
     {
         public RobocopyRunnerVM()
         {
-            JustDoIt = new BasicCommand(
+            JustDoIt = new DelegateCommand(
                 //execute
                 () => RoboRun(Source, Destination, Recursive, Restartable),
                 //can execute
@@ -24,7 +25,7 @@ namespace Shared
             get => source; set
             {
                 source = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(JustDoIt)));
+                JustDoIt.RaiseCanExecuteChanged();
             }
         }
         public string Destination
@@ -32,8 +33,7 @@ namespace Shared
             get => destination; set
             {
                 destination = value;
-                
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(JustDoIt)));
+                JustDoIt.RaiseCanExecuteChanged();
             }
         }
         public bool Recursive { get; set; }
@@ -48,21 +48,19 @@ namespace Shared
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.RedirectStandardError = true;
-            p.Start();
+            p.StartInfo.UseShellExecute = false;
 
-            //2) capture stdout
+            p.OutputDataReceived += (sender, args) => Output += args.Data + "\n";
+            p.ErrorDataReceived += (sender, args) => Error += args.Data + "\n";
+
             Output = String.Empty;
             Error = String.Empty;
 
-            while (!p.HasExited)
-            {
-                Output += p.StandardOutput.ReadLine();
+            p.Start();
+            p.BeginOutputReadLine();
+            p.BeginErrorReadLine();
 
-            }
-
-            Error = p.StandardError.ReadToEnd();
-
-
+            p.WaitForExit();
         }
 
         private string output;
@@ -91,7 +89,7 @@ namespace Shared
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error)));
             }
         }
-        public ICommand JustDoIt { get; set; }
+        public DelegateCommand JustDoIt { get; set; }
 
 
     }
