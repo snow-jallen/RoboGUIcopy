@@ -4,15 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoboGuiCopy.Wpf"
+        xmlns:vm="clr-namespace:Shared;assembly=Shared"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <!--DataContext="{StaticResource ViewModel}">
+    <Window.Resources>
+        <vm:RobocopyRunnerVM x:Key="ViewModel" />
+    </Window.Resources> -->
     <StackPanel>
         <TextBlock Text="Source"/>
-        <TextBox/>
+        <TextBox Text="{Binding Source}"/>
         <TextBlock Text="Destination"/>
-        <TextBox/>
-        <CheckBox/>
-        <CheckBox/>
-        <Button/>
+        <TextBox Text="{Binding Destination}"/>
+        <CheckBox Content="Recursive" IsChecked="{Binding Recursive}"/>
+        <CheckBox Content="Restartable" IsChecked="{Binding Restartable}"/>
+        <Button Content="Just Do It" Command="{Binding JustDoIt}"/>
     </StackPanel>
 </Window>

@@ -1,15 +1,44 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Input;
 
 namespace Shared
 {
-    public class RobocopyRunner : INotifyPropertyChanged
+    public class RobocopyRunnerVM : INotifyPropertyChanged
     {
-        public string Source { get; set; }
-        public string Destination { get; set; }
+        public RobocopyRunnerVM()
+        {
+            JustDoIt = new BasicCommand(
+                //execute
+                () => RoboRun(Source, Destination, Recursive, Restartable),
+                //can execute
+                () =>
+                    {
+                        return (Source != null && Destination != null);
+                    }
+                );
+        }
+        public string Source
+        {
+            get => source; set
+            {
+                source = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(JustDoIt)));
+            }
+        }
+        public string Destination
+        {
+            get => destination; set
+            {
+                destination = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(JustDoIt)));
+            }
+        }
         public bool Recursive { get; set; }
         public bool Restartable { get; set; }
+
         public void RoboRun(string src, string dest, bool recursive, bool restartable)
         {
             //1) Create the process with arguments robocopy {source} {dest} /E(recursive) /ZB(restartable mode)
@@ -50,6 +79,8 @@ namespace Shared
             }
         }
         private string error;
+        private string source;
+        private string destination;
 
         public string Error
         {
@@ -60,7 +91,7 @@ namespace Shared
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error)));
             }
         }
-
+        public ICommand JustDoIt { get; set; }
 
 
     }
