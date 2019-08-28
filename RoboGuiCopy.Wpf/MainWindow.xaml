@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:RoboGuiCopy.Wpf"
         xmlns:vm="clr-namespace:Shared;assembly=Shared"
         mc:Ignorable="d"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="MainWindow" Height="450" Width="800">
     <!--DataContext="{StaticResource ViewModel}">
     <Window.Resources>

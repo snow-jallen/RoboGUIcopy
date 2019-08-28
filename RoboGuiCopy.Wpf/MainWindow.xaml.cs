@@ -24,7 +24,7 @@ namespace RoboGuiCopy.Wpf
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new RobocopyRunnerVM();
+            //DataContext = new RobocopyRunnerVM();
         }
 
 
