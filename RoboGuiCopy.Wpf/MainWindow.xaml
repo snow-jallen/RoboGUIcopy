@@ -11,6 +11,38 @@
         Width="800"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="-1"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Orange"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="LimeGreen"/>
+            <Setter Property="BorderThickness" Value="3,3,6,6"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="LimeGreen"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform Angle="44" CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF062297" Offset="0"/>
+            <GradientStop Color="#FF9D06A3" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <!--See https://prismlibrary.github.io/docs/viewmodel-locator.html for documentation on wiring up the ViewModel-->
     <Grid>
         <Grid.RowDefinitions>
@@ -21,14 +53,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"
+                           MaxHeight="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -40,16 +66,22 @@
                    FontWeight="Bold"
                    HorizontalAlignment="Center" />
         <TextBlock Text="Source"
-                       Grid.Row="1"/>
+                   Grid.Row="1"
+                   Margin="5"/>
+        <Border Grid.Row="1"
+                Grid.Column="1">
+            <TextBox Text="{Binding Source, TargetNullValue='', UpdateSourceTrigger=PropertyChanged}"
 
-        <TextBox Text="{Binding Source, TargetNullValue='', UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="1"
-                 Grid.Column="1"/>
+                BorderBrush="Transparent"/>
+        </Border>
         <TextBlock Text="Destination"
+                   Margin="5"
                    Grid.Row="2"/>
-        <TextBox Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="2"
-                 Grid.Column="1"/>
+        <Border Grid.Row="2"
+                Grid.Column="1">
+                <TextBox Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"
+                 />
+        </Border>
 
         <CheckBox Content="Recursive"
                   IsChecked="{Binding Recursive}"
@@ -61,14 +93,28 @@
                   Grid.Column="1"/>
         <Button Content="Just Do It"
                 Command="{Binding JustDoIt}"
-                Grid.Row="5"/>
-        <ScrollViewer Grid.Row="6">
-            <StackPanel>
-                <TextBlock Text="Output" />
-                <TextBlock Text="{Binding Output}" />
-                <TextBlock Text="Error" />
-                <TextBlock Text="{Binding Error}" />
-            </StackPanel>
-        </ScrollViewer>
+                Grid.Row="5"
+                Grid.Column="1"/>
+        <TextBlock Text="Output"
+                   Grid.Row="6"
+                   Grid.ColumnSpan="2"/>
+
+        <Border Grid.Column="1"
+                Grid.Row="6">
+            <TextBox IsReadOnly="True"
+                     Text="{Binding Output}"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto"
+                 />
+        </Border>
+        <TextBlock Text="Error"
+                   Grid.Row="7"
+                   Grid.ColumnSpan="2" />
+
+        <Border  Grid.Column="1"
+                 Grid.Row="7">
+                 <TextBox Text="{Binding Error}"
+                 IsReadOnly="True"/>
+        </Border>
     </Grid>
 </Window>
