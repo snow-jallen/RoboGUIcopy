@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{5DDE0810-B3AE-475D-83DD-DD8C7E881DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{5DDE0810-B3AE-475D-83DD-DD8C7E881DB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboGuiCopy.Wpf", "RoboGuiCopy.Wpf\RoboGuiCopy.Wpf.csproj", "{9FB3A188-B5F3-496B-9C4C-E97CCEC88C60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboGuiCopy.Uwp", "RoboGuiCopy.Uwp\RoboGuiCopy.Uwp.csproj", "{2D56A4D9-0108-4D66-80A2-4723C0F7FFD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboGuiCopy.Winforms", "RoboGuiCopy.Winforms\RoboGuiCopy.Winforms.csproj", "{9E09901C-DFF0-47B0-A184-B5E1CF209253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboGuiCopy.Tests", "RoboGuiCopy.Tests\RoboGuiCopy.Tests.csproj", "{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,26 @@ Global
 		{9E09901C-DFF0-47B0-A184-B5E1CF209253}.Release|x64.Build.0 = Release|Any CPU
 		{9E09901C-DFF0-47B0-A184-B5E1CF209253}.Release|x86.ActiveCfg = Release|Any CPU
 		{9E09901C-DFF0-47B0-A184-B5E1CF209253}.Release|x86.Build.0 = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|ARM.Build.0 = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|x64.Build.0 = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Debug|x86.Build.0 = Debug|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|ARM.ActiveCfg = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|ARM.Build.0 = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|ARM64.Build.0 = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|x64.ActiveCfg = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|x64.Build.0 = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|x86.ActiveCfg = Release|Any CPU
+		{71BBFEAB-611B-4A7D-9A7D-D6D5F190FD33}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
