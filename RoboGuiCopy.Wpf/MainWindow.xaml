@@ -12,6 +12,9 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Window.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="Orange"/>
+        </Style>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="-1"/>
             <Setter Property="BorderBrush" Value="Transparent"/>

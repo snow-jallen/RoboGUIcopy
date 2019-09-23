@@ -50,6 +50,15 @@ namespace RoboGuiCopy.Wpf
                 JustDoIt.RaiseCanExecuteChanged();
             }
         }
+
+        private decimal amount;
+
+        public decimal Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+
         public bool Recursive { get; set; }
         public bool Restartable { get; set; }
 
